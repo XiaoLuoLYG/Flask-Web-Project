@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Search</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="static/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/bootstrap-table-master/src/bootstrap-table.scss">
+    <link rel="stylesheet" href="static/bootstrap-table-master/src/themes/bootstrap-table/bootstrap-table.scss">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <!-- Google fonts - Popppins for copy-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,800">
+    <!-- orion icons-->
+    <link rel="stylesheet" href="static/css/orionicons.css">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="static/css/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="static/css/custom.css">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="static/img/favicon.png?3">
+    <!-- Tweaks for older IEs-->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+
+
+
+
+</head>
+<body>
+    <!-- navbar-->
+    <header class="header">
+        <nav class="navbar navbar-expand-lg px-4 py-2 bg-white shadow">
+            <a href="#" class="sidebar-toggler text-gray-500 mr-4 mr-lg-5 lead"><i class="fas fa-align-left"></i></a><a href="index.html" class="navbar-brand font-weight-bold text-uppercase text-base">Developer Performance Index</a>
+            <ul class="ml-auto d-flex align-items-center list-unstyled mb-0">
+                <li class="nav-item">
+                    <form id="searchForm" class="ml-auto d-none d-lg-block">
+                        <div class="form-group position-relative mb-0">
+                            <button type="submit" style="top: -3px; left: 0;" class="position-absolute bg-white border-0 p-0"><i class="o-search-magnify-1 text-gray text-lg"></i></button>
+                            <input type="search" placeholder="Search ..." class="form-control form-control-sm border-0 no-shadow pl-4">
+                        </div>
+                    </form>
+                </li>
+
+                <li class="nav-item dropdown ml-auto">
+                    <a id="userInfo" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle"><img src="static/img/avatar-6.jpg" alt="Jason Doe" style="max-width: 2.5rem;" class="img-fluid rounded-circle shadow"></a>
+                    <div aria-labelledby="userInfo" class="dropdown-menu">
+                        <a href="#" class="dropdown-item"><strong class="d-block text-uppercase headings-font-family">Mark Stephen</strong><small>Web Developer</small></a>
+                        <div class="dropdown-divider"></div><a href="#" class="dropdown-item">Settings</a><a href="#" class="dropdown-item">Activity log       </a>
+                        <div class="dropdown-divider"></div><a href="login.html" class="dropdown-item">Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="d-flex align-items-stretch">
+        <div id="sidebar" class="sidebar py-3">
+            <div class="text-gray-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family">MAIN</div>
+            <ul class="sidebar-menu list-unstyled">
+                <li class="sidebar-list-item"><a href="home" class="sidebar-link text-muted"><i class="o-home-1 mr-3 text-gray"></i><span>Home</span></a></li>
+                <li class="sidebar-list-item"><a href="charts" class="sidebar-link text-muted"><i class="o-sales-up-1 mr-3 text-gray"></i><span>Charts</span></a></li>
+                <li class="sidebar-list-item"><a href="tables" class="sidebar-link text-muted"><i class="o-table-content-1 mr-3 text-gray"></i><span>Tables</span></a></li>
+                <li class="sidebar-list-item"><a href="search" class="sidebar-link text-muted active"><i class="o-survey-1 mr-3 text-gray"></i><span>Search</span></a></li>
+                <li class="sidebar-list-item">
+                    <a href="#" data-toggle="collapse" data-target="#pages" aria-expanded="false" aria-controls="pages" class="sidebar-link text-muted"><i class="o-wireframe-1 mr-3 text-gray"></i><span>Pages</span></a>
+                    <div id="pages" class="collapse">
+                        <ul class="sidebar-menu list-unstyled border-left border-primary border-thick">
+                            <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">Page one</a></li>
+                            <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">Page two</a></li>
+                            <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">Page three</a></li>
+                            <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">Page four</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="sidebar-list-item"><a href="login.html" class="sidebar-link text-muted"><i class="o-exit-1 mr-3 text-gray"></i><span>Login</span></a></li>
+            </ul>
+
+        </div>
+
+        <div class="page-holder w-100 d-flex flex-wrap">
+
+            <div class="col-md-12" style="margin-top:{{margin_one}}">
+                <form action="/search" method="post">
+                    <div class="input-group mb-3">
+                        <input type="text" placeholder="Enter Your AD" name="ad" aria-label="Recipient's username" aria-describedby="button-addon2" class="form-control" style="text-align:center" list="namelist">
+                        <datalist id="namelist">
+                            {% for name in name_list %}
+                            <option value="{{ name }}"></option>
+                            {% endfor %}
+
+                        </datalist>
+                        <div class="input-group-append">
+                            <button id="button-addon2" type="submit" class="btn btn-primary">Search</button>
+                        </div>
+                    </div>
+                </form>
+
+                <p style="margin-left:auto">{{ AD }}</p>
+
+
+            </div>
+            <div class="container-fluid px-xl-5" style="{{hide_or_not}}">
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="h6 text-uppercase mb-0" style="text-align:center">{{name_ad}} Here is your result!</h2>
+                    </div>
+                    <div class="card-body">
+                        {{ personal_df|safe }}
+                    </div>
+                </div>
+
+                <br />
+                <div class="row mb-4">
+                    <div class="col-lg-8 mb-4 mb-lg-0">
+                        <div class="card">
+                            <div class="card-header">
+                                <h2 class="h6 text-uppercase mb-0">Total Scores Bar Chart</h2>
+                            </div>
+                            <div class="card-body">
+                                <p class="mb-5 text-gray">Interval center at {{ name_ad }}</p>
+                                <div class="chart-holder mt-5 mb-5">
+                                    <script>var ad1 = {{ ad1 | safe }}; </script>
+                                    <script>var lc1 = {{ lc1 | safe }}; </script>
+                                    <script>var bgc = {{ bgc | safe }}; </script>
+                                    <script>var borderc = {{ borderc | safe }}; </script>
+                                    <script>var hbgc = {{ hbgc | safe }}; </script>
+                                    <canvas id="barChartPersonal"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <h2 class="h6 text-uppercase mb-0">Line Chart center at {{name_ad}}</h2>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-holder">
+                                    <script>var max_value = {{ max_value | safe }}; </script>
+                                    <script>var min_value = {{ min_value | safe }}; </script>
+                                    <script>var ad1 = {{ ad2 | safe }}; </script>
+                                    <script>var lc1 = {{ lc2 | safe }}; </script>
+                                    <canvas id="lineCahrtsm1"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mb-3">
+                            <div class="card-header">
+                                <h2 class="h6 text-uppercase mb-0">Pie chart for {{name_ad}}</h2>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-holder">
+                                    <script>var data_pie = {{ data_pie_search | safe }};</script>
+                                    <script>var label_pie = {{ label_pie_search | safe }};</script>
+                                    <canvas id="pieChartExample1"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="footer bg-white shadow align-self-end py-3 px-xl-5 w-100">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6 text-center text-md-left text-primary">
+                            <p class="mb-2 mb-md-0">Your company &copy; 2018-2020</p>
+                        </div>
+                        <div class="col-md-6 text-center text-md-right text-gray-400">
+                            <p class="mb-0">Copyright &copy; 2021.Company name All rights reserved.</p>
+                            <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <!-- JavaScript files-->
+    <script src="static/vendor/jquery/jquery.min.js"></script>
+    <script src="static/vendor/popper.js/umd/popper.min.js"></script>
+    <script src="static/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="static/bootstrap-table-master/dist/bootstrap-table.js"></script>
+    <script src="static/vendor/jquery.cookie/jquery.cookie.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="static/vendor/chart.js/Chart.min.js"></script>
+    <script src="static/js/js.cookie.min.js"></script>
+    <script src="static/js/charts-custom.js"></script>
+
+    <script src="static/js/front.js"></script>
+</body>
+</html>
