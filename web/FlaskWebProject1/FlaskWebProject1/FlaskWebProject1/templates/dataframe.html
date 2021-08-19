@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h2>{{ title }}.</h2>
+<h3>{{ message }}</h3>
+
+<p>Use this area to provide additional information.</p>
+
+<table border="0" height="200" >
+    <tr>
+        <td>
+            <div>
+               
+                {{data.to_html(classes="table table-striped") | safe}}
+            </div>
+        </td>
+    </tr>
+</table>
+{% endblock %}
